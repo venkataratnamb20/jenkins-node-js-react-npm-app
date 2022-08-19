@@ -5,6 +5,11 @@ pipeline {
             args '-p 3000:3000' 
         }
     }
+    options {
+       buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '1', numToKeepStr: '10')
+       quietPeriod 300
+   }
+
     stages {
         stage('Build') { 
             steps {
